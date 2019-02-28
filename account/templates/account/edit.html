@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}
+	Редактирование учётной записи
+{% endblock title %}
+
+{% block content %}
+	<h1>Редактирование учётной записи</h1>
+	<p>Вы можете изменить данные учётной записи заполнив форму:</p>
+	<form action="." method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ user_form.as_p }}
+		{{ profile_form.as_p }}
+		{% buttons %}
+        	<button type="submit" class="btn btn-primary">Подтвердить</button>
+        {% endbuttons %}
+	</form>
+{% endblock content %}

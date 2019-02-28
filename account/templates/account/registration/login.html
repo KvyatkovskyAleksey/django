@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+	<h1>Вход</h1>
+
+		<form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form_errors form layout='inline' %}
+            {% for field in form %}
+            	{% bootstrap_field field field_class="col-xs-12 col-sm-12 col-md-8 col-lg-5" %}
+            {% endfor %}
+            {% buttons %}
+            	<button type="submit" class="btn btn-primary">Подтвердить</button>
+            {% endbuttons %}
+        </form>
+    
+{% endblock %}
